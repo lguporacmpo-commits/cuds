@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CUDS - Google Sheets App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 CUDS</h1>
+            <p>Connect to Google Sheets</p>
+        </header>
+
+        <main>
+            <!-- Setup Section -->
+            <section id="setupSection" class="section active">
+                <h2>Step 1: Connect Google Sheets</h2>
+                <div class="form-group">
+                    <label for="sheetId">Google Sheet ID:</label>
+                    <input 
+                        type="text" 
+                        id="sheetId" 
+                        placeholder="Paste your Google Sheet ID here"
+                        class="input-field"
+                    >
+                    <small>Get it from your sheet URL: docs.google.com/spreadsheets/d/<strong>SHEET_ID</strong>/edit</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="apiKey">Google API Key:</label>
+                    <input 
+                        type="password" 
+                        id="apiKey" 
+                        placeholder="Your Google API Key"
+                        class="input-field"
+                    >
+                    <small><a href="#" onclick="openApiGuide(event)">How to get API Key?</a></small>
+                </div>
+
+                <button onclick="connectSheet()" class="btn btn-primary">Connect</button>
+            </section>
+
+            <!-- Data Display Section -->
+            <section id="dataSection" class="section" style="display:none;">
+                <h2>Your Data</h2>
+                
+                <div class="controls">
+                    <button onclick="refreshData()" class="btn btn-secondary">🔄 Refresh</button>
+                    <button onclick="disconnect()" class="btn btn-secondary">Disconnect</button>
+                </div>
+
+                <div id="dataContainer" class="data-container">
+                    <p>Loading...</p>
+                </div>
+            </section>
+
+            <!-- Error Section -->
+            <section id="errorSection" class="section" style="display:none;">
+                <div class="error-box">
+                    <h3>⚠️ Error</h3>
+                    <p id="errorMessage"></p>
+                    <button onclick="resetSetup()" class="btn btn-primary">Try Again</button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>💡 Tip: Make sure your Google Sheet is shared publicly or you have API access</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
