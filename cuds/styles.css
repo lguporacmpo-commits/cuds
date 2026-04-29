@@ -1,0 +1,350 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #eef2f7;
+  color: #1f2937;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: linear-gradient(180deg, #e5f2ff 0%, #eef2f7 100%);
+}
+
+.page-shell {
+  width: 100%;
+  max-width: 720px;
+}
+
+.survey-card {
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 18px 60px rgba(15, 23, 42, 0.08);
+  padding: 32px;
+}
+
+.survey-card header h1 {
+  margin: 0 0 12px;
+  font-size: clamp(2rem, 2.5vw, 2.75rem);
+  line-height: 1.05;
+}
+
+.survey-card header p {
+  margin: 0 0 24px;
+  color: #4b5563;
+  font-size: 1rem;
+}
+
+label {
+  display: block;
+  margin: 18px 0 8px;
+  font-weight: 600;
+}
+
+input[type="text"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 14px;
+  background: #f9fafb;
+  font-size: 1rem;
+  color: #111827;
+}
+
+textarea {
+  resize: vertical;
+}
+
+fieldset {
+  border: none;
+  margin: 20px 0 0;
+  padding: 0;
+}
+
+.members-container {
+  margin-top: 20px;
+}
+
+.member-fieldset {
+  border: 1px solid #d1d5db;
+  border-radius: 18px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background: #f9fafb;
+}
+
+.member-fieldset legend {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.field-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.member-age {
+  background: #f3f4f6;
+}
+
+.secondary-button {
+  width: 100%;
+  margin-top: 12px;
+  border: 1px solid #2563eb;
+  background: #ffffff;
+  color: #2563eb;
+  font-weight: 700;
+}
+
+.secondary-button:hover,
+.secondary-button:focus-visible {
+  background: #eff6ff;
+}
+
+.member-summary {
+  margin-top: 18px;
+  padding: 20px;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+}
+
+.member-summary h3 {
+  margin-top: 0;
+}
+
+.enrollment-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+legend {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+fieldset label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-right: 18px;
+  font-weight: 500;
+}
+
+button {
+  margin-top: 28px;
+  width: 100%;
+  border: none;
+  border-radius: 16px;
+  padding: 14px 20px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover,
+button:focus-visible {
+  background: #1d4ed8;
+}
+
+.result-panel {
+  margin-top: 28px;
+  padding: 22px;
+  border-radius: 18px;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Mobile Optimizations */
+
+@media (max-width: 640px) {
+  body {
+    padding: 16px;
+    background: linear-gradient(180deg, #e5f2ff 0%, #eef2f7 100%);
+  }
+
+  .survey-card {
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .survey-card header h1 {
+    font-size: 1.75rem;
+  }
+
+  .survey-card header p {
+    font-size: 0.95rem;
+  }
+
+  .field-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  button {
+    padding: 16px 20px;
+    font-size: 1rem;
+  }
+
+  input[type="text"],
+  input[type="tel"],
+  input[type="date"],
+  input[type="number"],
+  select,
+  textarea {
+    padding: 14px 12px;
+    font-size: 16px; /* Prevents zoom on iOS */
+    border-radius: 12px;
+  }
+
+  label {
+    font-size: 0.95rem;
+    margin: 16px 0 6px;
+  }
+
+  .member-fieldset {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+
+  .member-fieldset legend {
+    font-size: 1rem;
+  }
+
+  .result-panel {
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .member-summary {
+    padding: 16px;
+    margin-top: 14px;
+  }
+}
+
+/* iOS Specific */
+@supports (-webkit-touch-callout: none) {
+  body {
+    padding-bottom: max(24px, env(safe-area-inset-bottom));
+    padding-left: max(24px, env(safe-area-inset-left));
+    padding-right: max(24px, env(safe-area-inset-right));
+    padding-top: max(24px, env(safe-area-inset-top));
+  }
+
+  .survey-card {
+    padding: max(24px, env(safe-area-inset-top));
+  }
+
+  input[type="text"],
+  input[type="tel"],
+  input[type="date"],
+  input[type="number"],
+  select,
+  textarea {
+    font-size: 16px;
+    border-radius: 12px;
+  }
+}
+
+/* Tablet Optimizations */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .field-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .survey-card {
+    padding: 28px;
+  }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    background: #1a1a2e;
+    color: #e5e7eb;
+  }
+
+  body {
+    background: linear-gradient(180deg, #0f172a 0%, #1a1a2e 100%);
+  }
+
+  .survey-card {
+    background: #1f2937;
+    border-color: #374151;
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.3);
+  }
+
+  input[type="text"],
+  input[type="tel"],
+  input[type="date"],
+  input[type="number"],
+  select,
+  textarea {
+    background: #111827;
+    border-color: #374151;
+    color: #e5e7eb;
+  }
+
+  .member-fieldset {
+    background: #111827;
+    border-color: #374151;
+  }
+
+  .member-summary {
+    background: #1f2937;
+    border-color: #374151;
+  }
+
+  .result-panel {
+    background: #1f2937;
+    border-color: #374151;
+  }
+
+  .secondary-button {
+    background: #1f2937;
+    border-color: #3b82f6;
+    color: #3b82f6;
+  }
+
+  .secondary-button:hover,
+  .secondary-button:focus-visible {
+    background: #374151;
+  }
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#2563eb" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Labor and Employment Mapping</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="icon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <section class="survey-card">
+      <header>
+        <h1>Labor and Employment Mapping</h1>
+        <p>Help us understand labor market conditions, employment trends, and youth education/employment status in your area.</p>
+      </header>
+      <form id="survey-form">
+        <!-- Bot Protection Honeypot -->
+        <input type="text" id="honeypot" name="honeypot" style="display:none;">
+
+        <h2>Identification Section</h2>
+
+        <label for="respondent">Name of Respondent</label>
+        <input type="text" id="respondent" name="respondent" placeholder="Enter respondent's name" required />
+
+        <label for="contact-number">Contact Number</label>
+        <input type="tel" id="contact-number" name="contactNumber" placeholder="Enter respondent contact number" required />
+
+        <label for="household-head">Household Head</label>
+        <input type="text" id="household-head" name="householdHead" placeholder="Enter household head's name" required />
+
+        <label for="household-head-contact">Household Head Contact Number</label>
+        <input type="tel" id="household-head-contact" name="householdHeadContact" placeholder="Enter household head contact number" required />
+
+        <label for="household-members">Total Household Members</label>
+        <input type="number" id="household-members" name="householdMembers" min="1" max="20" placeholder="Enter total household members" required />
+
+        <label for="address">Address</label>
+        <input type="text" id="address" name="address" placeholder="Enter street address" required />
+
+        <label for="barangay">Barangay</label>
+        <input type="text" id="barangay" name="barangay" placeholder="Enter barangay" required />
+
+        <label for="city">City / Municipality</label>
+        <input type="text" id="city" name="city" placeholder="Enter city or municipality" required />
+
+        <label for="province">Province</label>
+        <input type="text" id="province" name="province" placeholder="Enter province" required />
+
+        <button type="button" id="generate-members" class="secondary-button">Generate household member entries</button>
+
+        <h2>Demographic Section</h2>
+
+        <div id="members-container" class="members-container"></div>
+
+        <button type="submit">Submit Survey</button>
+      </form>
+
+      <section id="result" class="result-panel hidden" aria-live="polite"></section>
+    </section>
+  </main>
+  <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').catch((error) => {
+        console.warn('Service worker registration failed:', error);
+      });
+    }
+  </script>
+</body>
+</html>
